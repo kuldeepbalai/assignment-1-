@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Assignment (Q1 - Q10)</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:20px;
+            background:#f4f4f4;
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        .container{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 5px gray;
+        }
+
+        pre{
+            white-space:pre-wrap;
+            font-size:14px;
+        }
+
+        button{
+            padding:10px 20px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>JavaScript Assignment Solutions</h1>
+
+<div class="container">
+    <button onclick="runAssignment()">Run All Questions</button>
+    <pre id="output"></pre>
+</div>
+
+<script>
+
+function runAssignment(){
+
+let result = "";
+
+/* Q1 */
+result += "Q1. let, const and var Scope\n";
+
+function scopeExample(){
+
+    var a = 10;
+    let b = 20;
+    const c = 30;
+
+    result += "var = " + a + "\n";
+    result += "let = " + b + "\n";
+    result += "const = " + c + "\n";
+}
+
+scopeExample();
+
+result += "Difference:\n";
+result += "var = Function Scope\n";
+result += "let = Block Scope\n";
+result += "const = Block Scope and cannot be reassigned\n\n";
+
+
+/* Q2 */
+result += "Q2. Second Fruit\n";
+
+const fruits = [
+    "Apple",
+    "Banana",
+    "Mango",
+    "Orange",
+    "Grapes"
+];
+
+function getSecondFruit(){
+    return fruits[1];
+}
+
+result += getSecondFruit() + "\n\n";
+
+
+/* Q3 */
+result += "Q3. Push and Pop\n";
+
+function modifyArray(arr){
+
+    arr.push("New Item");
+    arr.pop();
+
+    return arr;
+}
+
+result += JSON.stringify(
+modifyArray(["A","B","C"])
+);
+
+result += "\n\n";
+
+
+/* Q4 */
+result += "Q4. Square Numbers using map()\n";
+
+const numbers = [1,2,3,4,5];
+
+const squared =
+numbers.map(num => num * num);
+
+result += JSON.stringify(squared);
+
+result += "\n\n";
+
+
+/* Q5 */
+result += "Q5. Filter Odd Numbers\n";
+
+const oddNumbers =
+[1,2,3,4,5,6,7,8,9]
+.filter(num => num % 2 !== 0);
+
+result += JSON.stringify(oddNumbers);
+
+result += "\n\n";
+
+
+/* Q6 */
+result += "Q6. Person Greeting\n";
+
+const person = {
+    name:"Kuldeep",
+    age:23,
+    occupation:"Student"
+};
+
+function greetPerson(person){
+
+    return `Hello, my name is ${person.name}. I am ${person.age} years old and I am a ${person.occupation}.`;
+}
+
+result += greetPerson(person);
+
+result += "\n\n";
+
+
+/* Q7 */
+result += "Q7. Rectangle Area\n";
+
+function rectangleArea(rect){
+
+    return rect.width * rect.height;
+}
+
+result += rectangleArea({
+    width:10,
+    height:5
+});
+
+result += "\n\n";
+
+
+/* Q8 */
+result += "Q8. Object Keys\n";
+
+function getKeys(obj){
+
+    return Object.keys(obj);
+}
+
+result += JSON.stringify(
+getKeys({
+name:"Ram",
+age:25,
+city:"Jaipur"
+})
+);
+
+result += "\n\n";
+
+
+/* Q9 */
+result += "Q9. Merge Objects\n";
+
+function mergeObjects(obj1,obj2){
+
+    return Object.assign({},obj1,obj2);
+}
+
+const merged =
+mergeObjects(
+{name:"Ram"},
+{age:25}
+);
+
+result += JSON.stringify(merged);
+
+result += "\n\n";
+
+
+/* Q10 */
+result += "Q10. Sum using reduce()\n";
+
+const nums = [10,20,30,40,50];
+
+const sum =
+nums.reduce(
+(sum,num)=>sum+num,
+0
+);
+
+result += sum + "\n\n";
+
+
+/* Bonus Q11 */
+result += "Q11. Average Marks of Students\n";
+
+const students = [
+{
+name:"Ram",
+scores:[80,70,60]
+},
+{
+name:"Mohan",
+scores:[80,70,90]
+},
+{
+name:"Sai",
+scores:[60,70,80]
+},
+{
+name:"Hemang",
+scores:[90,90,80,80]
+}
+];
+
+const averages =
+students.map(student=>({
+
+name:student.name,
+
+average:
+student.scores.reduce(
+(a,b)=>a+b,0
+)
+/ student.scores.length
+
+}));
+
+result += JSON.stringify(
+averages,
+null,
+2
+);
+
+document.getElementById("output")
+.textContent = result;
+
+}
+
+</script>
+
+</body>
+</html>
