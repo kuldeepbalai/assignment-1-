@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator Component</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .calculator {
+            width: 300px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            min-height: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <h2>Calculator</h2>
+
+    <input type="number" id="num1" placeholder="Enter First Number">
+    <input type="number" id="num2" placeholder="Enter Second Number">
+
+    <br>
+
+    <button onclick="calculate('+')">Add</button>
+    <button onclick="calculate('-')">Subtract</button>
+    <button onclick="calculate('*')">Multiply</button>
+    <button onclick="calculate('/')">Divide</button>
+
+    <div id="result">Output: </div>
+</div>
+
+<script>
+function calculate(operator) {
+
+    let num1 = Number(document.getElementById("num1").value);
+    let num2 = Number(document.getElementById("num2").value);
+    let answer;
+
+    switch(operator) {
+        case '+':
+            answer = num1 + num2;
+            break;
+
+        case '-':
+            answer = num1 - num2;
+            break;
+
+        case '*':
+            answer = num1 * num2;
+            break;
+
+        case '/':
+            answer = (num2 !== 0)
+                ? num1 / num2
+                : "Cannot divide by zero";
+            break;
+    }
+
+    document.getElementById("result").innerHTML =
+        "Output: " + answer;
+}
+</script>
+
+</body>
+</html>
