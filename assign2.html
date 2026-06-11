@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Assignment</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f4f4f4;
+        }
+
+        h1{
+            text-align: center;
+            color: #333;
+        }
+
+        .box{
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 5px gray;
+        }
+
+        button{
+            padding: 8px 15px;
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover{
+            background: #555;
+        }
+
+        p{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>JavaScript Assignment Solutions</h1>
+
+<!-- Question 1 -->
+<div class="box">
+    <h2>1. Display Even Numbers from 1 to 100</h2>
+    <button onclick="showEven()">Show Even Numbers</button>
+    <p id="evenResult"></p>
+</div>
+
+<!-- Question 2 -->
+<div class="box">
+    <h2>2. Calculator Using Switch</h2>
+    <button onclick="calculator()">Run Calculator</button>
+    <p id="calcResult"></p>
+</div>
+
+<!-- Question 3 -->
+<div class="box">
+    <h2>3. Tax Calculator</h2>
+    <button onclick="taxDemo()">Calculate Tax</button>
+    <p id="taxResult"></p>
+</div>
+
+<!-- Question 4 -->
+<div class="box">
+    <h2>4. Sum of Product of Corresponding Digits</h2>
+    <button onclick="digitProductDemo()">Find Result</button>
+    <p id="digitResult"></p>
+</div>
+
+<script>
+
+// Question 1
+function showEven() {
+    let result = "";
+
+    for(let i = 1; i <= 100; i++) {
+        if(i % 2 === 0) {
+            result += i + " ";
+        }
+    }
+
+    document.getElementById("evenResult").innerHTML = result;
+}
+
+// Question 2
+function calculate(num1, num2, operator) {
+    switch(operator) {
+        case '+':
+            return num1 + num2;
+
+        case '-':
+            return num1 - num2;
+
+        case '*':
+            return num1 * num2;
+
+        case '/':
+            return num1 / num2;
+
+        default:
+            return "Invalid Operator";
+    }
+}
+
+function calculator() {
+    let result = calculate(20, 10, '+');
+    document.getElementById("calcResult").innerHTML =
+        "20 + 10 = " + result;
+}
+
+// Question 3
+function findTax(salary) {
+
+    let tax;
+
+    switch(true) {
+
+        case (salary > 0 && salary <= 500000):
+            tax = salary * 0;
+            break;
+
+        case (salary > 500000 && salary <= 1000000):
+            tax = salary * 0.10;
+            break;
+
+        case (salary > 1000000 && salary <= 1500000):
+            tax = salary * 0.20;
+            break;
+
+        case (salary > 1500000):
+            tax = salary * 0.30;
+            break;
+
+        default:
+            tax = 0;
+    }
+
+    return tax;
+}
+
+function taxDemo() {
+    let salary = 1200000;
+    let tax = findTax(salary);
+
+    document.getElementById("taxResult").innerHTML =
+        "Salary = ₹" + salary + "<br>Tax = ₹" + tax;
+}
+
+// Question 4
+function sumOfProducts(n1, n2) {
+
+    let s1 = n1.toString();
+    let s2 = n2.toString();
+
+    let maxLen = Math.max(s1.length, s2.length);
+
+    s1 = s1.padStart(maxLen, "0");
+    s2 = s2.padStart(maxLen, "0");
+
+    let sum = 0;
+
+    for(let i = 0; i < maxLen; i++) {
+        sum += Number(s1[i]) * Number(s2[i]);
+    }
+
+    return sum;
+}
+
+function digitProductDemo() {
+
+    let n1 = 6;
+    let n2 = 34;
+
+    let result = sumOfProducts(n1, n2);
+
+    document.getElementById("digitResult").innerHTML =
+        "n1 = " + n1 +
+        ", n2 = " + n2 +
+        "<br>Result = " + result;
+}
+
+</script>
+
+</body>
+</html>
