@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webpage Design Assignment</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+/* Header */
+header{
+    background:#333;
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.social-links a{
+    color:white;
+    text-decoration:none;
+    margin-left:15px;
+}
+
+/* Menubar */
+nav{
+    background:#555;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+}
+
+nav ul li{
+    padding:15px 20px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+}
+
+nav ul li:hover{
+    background:#777;
+}
+
+/* Main Layout */
+.container{
+    display:flex;
+    min-height:500px;
+}
+
+/* Sidebar */
+.sidebar{
+    width:25%;
+    background:#f2f2f2;
+    padding:20px;
+}
+
+.sidebar h2{
+    margin-bottom:15px;
+}
+
+.sidebar p{
+    margin-bottom:10px;
+}
+
+.sidebar button{
+    padding:10px 15px;
+    background:#333;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+.sidebar button:hover{
+    background:#555;
+}
+
+/* Content */
+.content{
+    width:75%;
+    display:flex;
+    justify-content:space-around;
+    padding:20px;
+}
+
+.box{
+    width:30%;
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:center;
+    background:white;
+    box-shadow:0px 0px 5px gray;
+}
+
+.box img{
+    width:100%;
+    margin:10px 0;
+}
+
+/* Footer */
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo">MY LOGO</div>
+
+    <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+    </div>
+</header>
+
+<!-- Menubar -->
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Main Section -->
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Student Information</h2>
+        <p><b>Name:</b> Kuldeep</p>
+        <p><b>Course:</b> B.Tech</p>
+        <p><b>Branch:</b> electronics and computer Engineering</p>
+        <p><b>Semester:</b> 6th</p>
+
+        <button onclick="showMessage()">Click Me</button>
+    </aside>
+
+    <!-- Content -->
+    <main class="content">
+
+        <div class="box">
+            <h3>HTML</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/250px-HTML5_logo_and_wordmark.svg.png" alt="HTML">
+            <p>HTML is used to create the structure of web pages.</p>
+        </div>
+
+        <div class="box">
+            <h3>CSS</h3>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Official_CSS_Logo.svg" alt="CSS">
+            <p>CSS is used to style and design web pages.</p>
+        </div>
+
+        <div class="box">
+            <h3>JavaScript</h3>
+            <img src="https://www.pragimtech.com/wp-content/uploads/2019/03/java-script.jpg" alt="JavaScript">
+            <p>JavaScript adds interactivity and dynamic behavior.</p>
+        </div>
+
+    </main>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 My Website | All Rights Reserved</p>
+</footer>
+
+<script>
+function showMessage() {
+    alert("Welcome to My Webpage!");
+}
+</script>
+
+</body>
+</html>
