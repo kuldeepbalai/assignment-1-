@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List App</title>
+</head>
+<body>
+
+    <h2>Todo List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add</button>
+
+    <ul id="todoList"></ul>
+
+    <script>
+        let tasks = [];
+
+        function addTask() {
+            const input = document.getElementById("taskInput");
+            const task = input.value.trim();
+
+            if (task === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            tasks.push(task);
+
+            // Sort tasks in ascending order
+            tasks.sort((a, b) => a.localeCompare(b));
+
+            renderTasks();
+
+            // Clear input field
+            input.value = "";
+
+            // Focus back to input
+            input.focus();
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            renderTasks();
+        }
+
+        function renderTasks() {
+            const list = document.getElementById("todoList");
+            list.innerHTML = "";
+
+            tasks.forEach((task, index) => {
+                const li = document.createElement("li");
+
+                li.innerHTML = `
+                    ${task}
+                    <button onclick="deleteTask(${index})">
+                        Delete
+                    </button>
+                `;
+
+                list.appendChild(li);
+            });
+        }
+
+        // Bonus: Add task using Enter key
+        document.getElementById("taskInput")
+            .addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    addTask();
+                }
+            });
+    </script>
+
+</body>
+</html>
