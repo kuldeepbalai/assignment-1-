@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Assignment Solutions</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1{
+            text-align:center;
+        }
+        .box{
+            background:white;
+            padding:15px;
+            margin:15px 0;
+            border-radius:8px;
+            box-shadow:0 0 5px gray;
+        }
+        pre{
+            white-space:pre-wrap;
+            word-wrap:break-word;
+        }
+        button{
+            padding:10px 15px;
+            background:#333;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>JavaScript Assignment (Q1 - Q11)</h1>
+
+<button onclick="runAll()">Run All Questions</button>
+
+<div class="box">
+    <pre id="output"></pre>
+</div>
+
+<script>
+
+function runAll(){
+
+let result = "";
+
+// Q1
+result += "Q1. Remove States Starting With Vowels\n";
+
+const states = [
+"Andhra Pradesh",
+"Uttar Pradesh",
+"Assam",
+"Bihar",
+"Odisha",
+"Rajasthan",
+"Maharashtra"
+];
+
+const filteredStates = states.filter(
+state => !['A','E','I','O','U'].includes(state[0].toUpperCase())
+);
+
+result += JSON.stringify(filteredStates) + "\n\n";
+
+
+// Q2
+result += "Q2. Reverse Words\n";
+
+let str = "I love my India";
+let reversedWords = str.split(" ").reverse().join(" ");
+
+result += reversedWords + "\n\n";
+
+
+// Q3
+result += "Q3. INDIA -> INDONESIA\n";
+
+let word = "INDIA";
+let arr = word.split("");
+
+arr.splice(3,0,"O","N","E","S");
+
+result += arr.join("") + "\n\n";
+
+
+// Q4
+result += "Q4. Count Vowels and Consonants\n";
+
+let text = "JavaScript is very powerful language";
+
+let vowels = 0;
+let consonants = 0;
+
+for(let ch of text.toLowerCase()){
+
+    if(/[a-z]/.test(ch)){
+
+        if("aeiou".includes(ch))
+            vowels++;
+        else
+            consonants++;
+    }
+}
+
+result += "Vowels = " + vowels + "\n";
+result += "Consonants = " + consonants + "\n\n";
+
+
+// Q5
+result += "Q5. Replace Wrong Word\n";
+
+function correctfn(string, wrong, correct){
+    return string.replace(wrong, correct);
+}
+
+result += correctfn(
+"I live in Delhii",
+"Delhii",
+"Delhi"
+);
+
+result += "\n\n";
+
+
+// Q6
+result += "Q6. Numbers Greater Than 5\n";
+
+const inputArr = [1,2,3,9,10,7,5,4,3];
+
+const answer = inputArr.filter(num => num > 5);
+
+result += JSON.stringify(answer) + "\n\n";
+
+
+// Q7
+result += "Q7. Student Average Using Map & Reduce\n";
+
+const students = [
+{ name:"Ram", scores:[80,70,60] },
+{ name:"Mohan", scores:[80,70,90] },
+{ name:"Sai", scores:[60,70,80] },
+{ name:"Hemang", scores:[90,90,80,80] }
+];
+
+const averages = students.map(student => ({
+name: student.name,
+average:
+student.scores.reduce((a,b)=>a+b,0)
+/ student.scores.length
+}));
+
+result += JSON.stringify(averages,null,2) + "\n\n";
+
+
+// Q8
+result += "Q8. Repeated Sum Of Digits\n";
+
+function singleDigit(num){
+
+while(num > 9){
+
+num = num
+.toString()
+.split("")
+.reduce((sum,digit)=>sum + Number(digit),0);
+
+}
+
+return num;
+}
+
+result += "456 => " + singleDigit(456) + "\n\n";
+
+
+// Q9
+result += "Q9. Count Words\n";
+
+function countWords(paragraph){
+return paragraph.trim().split(/\s+/).length;
+}
+
+let para =
+"JavaScript is a powerful programming language";
+
+result += countWords(para) + "\n\n";
+
+
+// Q10
+result += "Q10. Reverse String\n";
+
+function reverseString(str){
+return str.split("").reverse().join("");
+}
+
+result += reverseString("Hello") + "\n\n";
+
+
+// Q11
+result += "Q11. Student Subject Average\n";
+
+const studentData = {
+student1:{
+subject1:44,
+subject2:56,
+subject3:87,
+subject4:97,
+subject5:37
+},
+student2:{
+subject1:44,
+subject2:56,
+subject3:87,
+subject4:97,
+subject5:37
+},
+student3:{
+subject1:44,
+subject2:56,
+subject3:87,
+subject4:97,
+subject5:37
+}
+};
+
+const avgResult = Object.keys(studentData).map(student=>{
+
+const marks = Object.values(studentData[student]);
+
+const avg =
+marks.reduce((a,b)=>a+b,0)
+/ marks.length;
+
+return {
+[student]:{
+average: avg
+}
+};
+
+});
+
+result += JSON.stringify(avgResult,null,2);
+
+document.getElementById("output").textContent = result;
+
+}
+
+</script>
+
+</body>
+</html>
